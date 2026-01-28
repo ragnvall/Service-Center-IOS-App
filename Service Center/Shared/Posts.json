@@ -1,0 +1,32 @@
+[
+  {
+    "image": "Post1",
+    "like_count": 10,
+    "comment_count": 100,
+    "view_count": 30,
+    "description": "Welcome to Service Center!",
+    "profile_img": "Profile1",
+    "profile_name": "Service Team",
+    "profile_id": "service_team"
+  },
+  {
+    "image": "Post2",
+    "like_count": 1,
+    "comment_count": 3,
+    "view_count": 10,
+    "description": "Getting started with your first service request",
+    "profile_img": "Profile2",
+    "profile_name": "Support Guide",
+    "profile_id": "support_guide"
+  },
+  {
+    "image": "Post3",
+    "like_count": 4,
+    "comment_count": 3,
+    "view_count": 12,
+    "description": "Tips for efficient service management",
+    "profile_img": "Profile3",
+    "profile_name": "Best Practices",
+    "profile_id": "best_practices"
+  }
+]

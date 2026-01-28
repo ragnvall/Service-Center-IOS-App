@@ -1,0 +1,40 @@
+name: iOS CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Xcode
+        run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
+      - name: Install Dependencies
+        run: |
+          brew install cocoapods || true # If using CocoaPods
+          pod install || true # If using CocoaPods
+          swift package resolve # If using Swift Package Manager
+
+      - name: Run Unit Tests
+        run: |
+          xcodebuild test \
+            -scheme "Service Center" \
+            -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest'
+
+      - name: Run UI Tests
+        run: |
+          xcodebuild test \
+            -scheme "Service Center" \
+            -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' \
+            -only-testing:Service_CenterUITests
