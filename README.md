@@ -1,39 +1,31 @@
-# ServiceCenter
+# Service Center
 
-This repository contains the source code for **ServiceCenter**, an iOS application developed using Xcode. Follow the instructions below to set up and run the project.
+An iOS app for posting and finding local services/jobs — think a lightweight marketplace where users post a job, others accept and complete it, and both sides leave ratings. Built with SwiftUI and Firebase as a team project, run as a multi-sprint Scrum project (see `Scrum Documents/`).
 
----
+## Features
 
-## Setup Instructions
+- **Authentication** — email/password sign-up, login, and password reset via Firebase Auth, with Firestore-backed user profiles
+- **Posts** — create, browse, and save job/service posts with images, hashtags, and location
+- **Job lifecycle** — accept a posted job, mark it complete, and notify both parties by email
+- **Rating system** — rate the other party once a job is completed
+- **Comments** — comment threads on posts
+- **Messaging** — direct messaging between users (Firebase-backed chat)
+- **Filtering & hashtags** — filter posts by category/hashtag and location
+- **Profiles** — user profile pages with skills and post history
 
-Follow these steps to set up and run the project:
+## Tech stack
 
-1. **Clone the repository**
-   ```sh
-   git clone https://github.com/yourusername/ServiceCenter.git
-   cd ServiceCenter
-   ```
-2. **Open the Xcode project**
-   - Navigate to the project directory and open `ServiceCenter.xcodeproj` in Xcode.
+- SwiftUI, Combine
+- Firebase (Auth, Firestore)
+- SendGrid (transactional email notifications)
 
-3. **Build and Run**
-   - Ensure the required dependencies and tools are installed.
-   - Select the correct target device or simulator.
-   - Click **Run** in Xcode to launch the app.
+## Setup
 
----
+1. Clone the repository and open `Service Center.xcodeproj` in Xcode (15.0+, iOS 16.0+, Swift 5.9+).
+2. Add your own `GoogleService-Info.plist` for Firebase, or use the included one for local testing.
+3. Copy `Service Center/Features/Emails/Services/Secrets.swift.example` to `Secrets.swift` in the same folder and add your own SendGrid API key (this file is gitignored).
+4. Build and run.
 
-## Requirements
+## Project structure
 
-- Xcode 15.0 or later
-- iOS 16.0 or later
-- Swift 5.9 or later
-
-Ensure that your development environment meets these specifications to avoid compatibility issues.
-
----
-
-## Source Code
-
-This repository contains all necessary files to install and run ServiceCenter. The source code will be used for demonstration and code review as part of the project evaluation.
-
+Code is organized by feature (`Service Center/Features/<Feature>/{Views,ViewModels,Models,Services}`) so each team member could work on a feature in isolation. Project planning docs (sprint plans/reports, team agreement) are in `Scrum Documents/`.
